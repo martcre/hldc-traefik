@@ -4,6 +4,7 @@
   connection: local
   vars:
     - install_dir: /usr/local/etc/traefik
+    - certs_dir: /opt/traefik/certs
   tasks:
 
   - name: "Print Vars"
@@ -13,6 +14,14 @@
   - name: "Create app directory"
     file:
       path: "{{ install_dir }}"
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+
+  - name: "Create certs directory"
+    file:
+      path: "{{ certs_dir }}"
       state: directory
       owner: root
       group: root
