@@ -31,6 +31,7 @@
     community.docker.docker_compose:
       project_src: "{{ install_dir }}"
       state: absent
+    ignore_errors: true
 
   - name: "Copy files"
     copy:
